@@ -1,7 +1,5 @@
 /* 
-    File: task3-32477236.c
     Author: Yash Joshi
-    Student ID: 32477236
     Description: implements Deadline-Based scheduling algorithm for task 3 of assigment part b.
 */
 
