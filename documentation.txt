@@ -1,10 +1,10 @@
--------------------------------------------------------------
-FIT2100 ASSIGNMENT PART B DOCUMENTATION - YASH JOSHI 32477236
--------------------------------------------------------------
+--------------------------
+DOCUMENTATION - YASH JOSHI
+--------------------------
 
 
 ------------------------
-HOW TO COMPILE EACH TASK
+HOW TO COMPILE EACH FILE
 ------------------------
 1. Open the terminal
 
@@ -59,12 +59,12 @@ in the section "HOW TO RUN THE SCHEDULING ALGORITHMS".
 
 
 ---------------------------
-TASK SPECIFIC DOCUMENTATION
+FILE SPECIFIC DOCUMENTATION
 --------------------------
 
-------
-TASK 1
-------
+----------------------
+FIRST COME FIRST SERVE
+----------------------
 Assumptions
 	- When a process enters at time x, it will begin executing at time x. For example if process Y enters at time 0 and has a service time of 2, 
 	  it will begin execution at time 0 and finish at time 2, the next process wil then begin execution at time 2.
@@ -76,9 +76,9 @@ Assumptions
 	- processes will not have the same name
 
 
-------
-TASK 2
-------
+-----------
+ROUND ROBIN
+-----------
 Assumptions
 	- When a process enters at time x, it will begin executing at time x. For example if process Y enters at time 0 and has a service time of 2, 
 	  it will begin execution at time 0 and finish at time 2, the next process wil then begin execution at time 2.
@@ -88,9 +88,9 @@ Assumptions
 	- processes will not have the same name
 
 
-------
-TASK 3
-------
+--------
+DEADLINE
+--------
 Assumptions
 	- When a process enters at time x, it will begin executing at time x. For example if process Y enters at time 0 and has a service time of 2, 
 	  it will begin execution at time 0 and finish at time 2, the next process wil then begin execution at time 2.
