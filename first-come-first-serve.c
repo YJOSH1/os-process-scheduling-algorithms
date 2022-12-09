@@ -1,7 +1,5 @@
 /* 
-    File: task1-32477236.c
     Author: Yash Joshi
-    Student ID: 32477236
     Description: implements First Come First Serve scheduling algorithm for task 1 of assigment part b.
 */
 
