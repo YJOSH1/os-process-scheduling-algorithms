@@ -1,7 +1,5 @@
 /* 
-    File: task2-32477236.c
     Author: Yash Joshi
-    Student ID: 32477236
     Description: implements Round Robin scheduling algorithm for task 2 of assigment part b.
 */
 
