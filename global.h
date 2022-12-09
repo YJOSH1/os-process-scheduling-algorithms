@@ -1,7 +1,5 @@
 /* 
-    File: global.h
     Author: Yash Joshi
-    Student ID: 32477236
     Description: global header file for all tasks that contains struct definitions and function definitions
 */
 
