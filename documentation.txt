@@ -1,0 +1,128 @@
+------------------------------------------------
+DOCUMENTATION - OS PROCESS SCHEDULING ALGORITHMS
+------------------------------------------------
+
+
+------------------------
+HOW TO COMPILE EACH FILE
+------------------------
+1. Open the terminal
+
+2. Navigate to the directory, using the cd command, that contains the following files, task1-32477236.c, task2.32477236.c, task3-32477236, and global.h
+
+3. Use the following command to compile each task:  gcc -o task<no>-32477236 task<no>-32477236.c
+   For example:
+	- to compile the task 1 file: gcc -o task1-32477236 task1-32477236.c
+	- to compile the task 2 file: gcc -o task2-32477236 task2-32477236.c
+	- to compile the task 3 file: gcc -o task3-32477236 task3-32477236.c
+
+4. Once the above command has been executed the file has been compiled and is ready for execution
+
+
+------------------------------------
+HOW TO RUN THE SCHEDULING ALGORITHMS
+------------------------------------
+1. Open the terminal
+
+2. Navigate to the directory, using the cd command, that contains the compiled file which were created the previous section "HOW TO COMPILE EACH TASK"
+
+3. Ensure the file processes.txt exists, by using the ls command, and check that it contains processes, by using the cat command. If the file is empty
+   you can add processes that you would like to be run using the scheduling algorithm by following the below guidelines:
+	- Each line in the processes.txt file represents one process
+	- Each line must contain space seperated values with the following structure: [process name] [arrival time] [service time] [deadline time]
+	- For example the file may contain the following:
+		P1 0 1 2 3
+		P2 1 2 3 4
+		P3 2 3 4 5
+		P4 3 4 5 6
+
+3. Type ./task<no>-32477236 and press enter to execute
+   For example:
+	- to execute the compiled task 1 file: ./task1-32477236
+	- to execute the compiled task 2 file: ./task2-32477236
+	- to execute the compiled task 3 file: ./task3-32477236
+
+
+---------------------------------------------------------------------
+USING A DIFFERENT SOURCE FILE AS OPPOSED TO THE DEFAULT PROCESSES.TXT
+---------------------------------------------------------------------
+If you would like to use a different file that contains processes and is not called processes.txt or is in a different directory from the present working
+directory, this different file can be used by specifying it's path as a command line argument when you execute the program.
+
+For example:
+	- to execute the compiled task 1 file with a different file than processes.txt: ./task1-32477236 /home/student/differentfile.txt
+	- to execute the compiled task 2 file with a different file than processes.txt: ./task2-32477236 /home/student/differentfile.txt
+	- to execute the compiled task 3 file with a different file than processes.txt: ./task3-32477236 /home/student/differentfile.txt
+
+IMPORTANT: when not using the default processes.txt file, the alternative file must still follow the file structure guidelines mentioned in point 3, 
+in the section "HOW TO RUN THE SCHEDULING ALGORITHMS".
+
+
+---------------------------
+FILE SPECIFIC DOCUMENTATION
+--------------------------
+
+----------------------
+FIRST COME FIRST SERVE
+----------------------
+Assumptions
+	- When a process enters at time x, it will begin executing at time x. For example if process Y enters at time 0 and has a service time of 2, 
+	  it will begin execution at time 0 and finish at time 2, the next process wil then begin execution at time 2.
+	- results file order will not be in order of processes arrived, insted in the order processes finished as we do not store information on
+	  specific processes after they have finished execution. Thus the algorithm writes results to the file for each process when it finishes.
+	- if two processes enter at the same time, the process that is listed before the other in the input file will be queued for execution  first 
+	  followed by the second process
+	- input file contains no empty lines
+	- processes will not have the same name
+
+
+-----------
+ROUND ROBIN
+-----------
+Assumptions
+	- When a process enters at time x, it will begin executing at time x. For example if process Y enters at time 0 and has a service time of 2, 
+	  it will begin execution at time 0 and finish at time 2, the next process wil then begin execution at time 2.
+	- results file order will not be in order of processes arrived, insted in the order processes finished as we do not store information on
+	  specific processes after they have finished execution. Thus the algorithm writes results to the file for each process when it finishes.
+	- input file contains no empty lines
+	- processes will not have the same name
+
+
+--------
+DEADLINE
+--------
+Assumptions
+	- When a process enters at time x, it will begin executing at time x. For example if process Y enters at time 0 and has a service time of 2, 
+	  it will begin execution at time 0 and finish at time 2, the next process wil then begin execution at time 2.
+	- results file order will not be in order of processes arrived, insted in the order processes finished as we do not store information on
+	  specific processes after they have finished execution. Thus the algorithm writes results to the file for each process when it finishes.
+	- input file contains no empty lines
+	- processes will not have the same name
+
+How and why the algorithm works
+	- The algorithm that I have created for this task is a preemptive deadline-based scheduling algorithm. Each second the algorithm runs it will check the process
+	  queue to see of the process with the shortest deadline is at the front of the queue, thus will be executed first in order to maximise the possibility
+	  of meeting its deadline. If it finds that there is a process with a shorter deadline than the process at the front of the queue, it will move the process with
+	  the shorter deadline to the front of the queue and shift every other process down one position. If there is a process curently running and it finds a process
+	  with a shorter deadline time, it will preempt the currently running process, move it and all other processes down one position in the queue and move the process
+	  with the shorterst deadline to the front of the queue.
+	- The reason this algorithm works to maximise the possiblity of completing processes within their given deadline is because it repeadetly checks to see which process
+	  in the queue has the shortest deadline and ensures that runs first, by checking this condition every second it ensures that even processes that have entered that have
+	  a shorter deadline than other processes already in the process queue are ran before other processes with longer deadline times, thus maximising the chances of having all
+	  processes entering and already in the queue meeting their given deadline value.
+
+Algorithm test case
+	- input file:
+	  P1 0 3 5
+	  P2 1 6 7
+	  P3 4 4 6
+	  P4 6 2 2
+	- results file:
+	  P1 0 3 1
+	  P2 0 2 1
+	  P3 2 6 1
+	  P4 8 14 0
+	- It can be seen that using the above test case for the deadline algorithm maximises the amount of processes that are completed within their given deadline as compared to the
+	  first come first serve and round robin algorithms, which both are only able to make one process complete within its given deadline using the same test case.
+
+
